@@ -1,0 +1,118 @@
+body
+{
+    font-family: Lato; /* XXX what font is actually winning */
+    font-size: 18pt;
+}
+
+@page
+{
+    size: A4;
+    margin: 1cm;
+    counter-increment: page;
+
+    @bottom-right
+    {
+                content: counter(page);
+    }
+    @top-right
+    {
+            content: element(projects);
+    }
+    @top-left
+    {
+        content: element(year);
+    }
+}
+
+.title
+{
+    font-size: 2em;
+}
+
+h1
+{
+    font-size: 1.6em;
+    color: blue;
+    counter-increment: chapterCounter;
+    page-break-before: always;
+}
+
+p
+{
+    font-size: 20pt;
+    color: red;
+}
+
+.hourstable
+{
+    width: 50%;
+}
+
+.hourstable td
+{
+    border-bottom: 1px dashed grey;
+}
+
+th
+{
+    text-align: center;
+}
+
+.hours
+{
+    border-right: 1px solid grey;
+    width:10%;
+    margin: 0;
+    padding: 1em;
+}
+
+.hour-8, .hour-12, .hour-17
+{
+    background: #ccc;
+}
+.hour-8 { border-bottom: 8px dashed #aaa !important; }
+.hour-12{ border-bottom: 8px dashed #aaa !important;
+          border-top:    8px dashed #aaa;
+      }
+.hour-17{ border-top:    8px dashed #aaa; }
+
+/* hack for school run */
+.hour-15
+{
+    background: #ccc;
+    border-top:    8px dashed #aaa;
+    border-bottom: 1em solid white !important;
+}
+
+/* hack for wind-down */
+.hour-16
+{
+    border-bottom: 1em dotted #ccc !important;
+}
+
+.monthflex
+{
+    display: flex;
+    flex-wrap: wrap;
+}
+.monthflex .month
+{
+    flex: 1;/*grow*/
+}
+
+#projects
+{
+    position: running(projects);
+    padding: 0;
+    font-size: smaller;
+}
+#projects a
+{
+    border: 1px solid black;
+    padding: 0.2em;
+}
+
+#year
+{
+    position: running(year);
+}

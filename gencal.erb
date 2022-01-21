@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <link rel="stylesheet" type="text/css" href="styles.css" />
+    </head>
+    <body>
+
+      <h1 id=year><a href="#year">2022</a></h1>
+<div class="monthflex">
+<%
+def month(m)
+      # pre-1st padding. What day of the week is the 1st?
+      offset = m.wday
+      # last day of this month
+      # month+1 will over flow for Dec. duh
+      last = (Time.new(m.year,m.month + 1,1) - 1).day
+
+      r =  "<div class=\"month\">\n"
+      r += "<h2>" + m.strftime("%B") + "</h2>\n"
+      r += "<table>
+    <tr>
+        <th>M</th>
+        <th>T</th>
+        <th>W</th>
+        <th>T</th>
+        <th>F</th>
+        <th>S</th>
+        <th>S</th>
+    </tr>
+<tr>
+"
+      for d in (2..offset) do
+        r += "<td>&nbsp;</td>\n"
+      end
+
+      for d in (1..last) do
+          if (d+offset-2) % 7 == 0
+              r += "</tr><tr>\n"
+          end
+          d0 = sprintf "%02d", d
+          mon = m.strftime("%b").downcase
+          r += "<td><a href=\"##{mon}-#{d0}\">#{d0}</a></td>"
+      end
+      r + "</tr>
+      </table>
+      </div>
+      "
+    end
+
+for m in (1..9) do
+  %><%=month(Time.new(2022,m)) %><%
+end
+%>
+</div>
+
+<p id=projects>
+<% # can't use OL due to https://github.com/Kozea/WeasyPrint/issues/1239
+for d in (1..4) do
+%>
+  <a href="#project-<%=d%>">Project <%=d%></a>
+<%
+end
+%>
+</p>
+
+<%
+# now for day pages
+def day(d)
+    d0 = sprintf "%02d", d
+    r = "<h1 id=\"jan-#{d0}\">January #{d0}</h1>
+    <table class=hourstable>
+    "
+    for h in (8..17) do
+        h0 = sprintf "%02d", h
+        r += "<tr><td class=hours>#{h0}:00</td>
+              <td class=\"hour-#{h}\"> </td>
+        </tr>
+        "
+    end
+    r+= "</table>\n"
+    r
+end
+
+for d in (1..31) do  # 31 for jan
+    %><%=day d%><%
+end
+
+# project pages
+for d in (1..4) do
+%>
+  <h1 id="project-<%=d%>">Project <%=d%></h1>
+<%
+end
+%>
+    </body>
+</html>
