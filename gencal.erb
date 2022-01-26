@@ -71,9 +71,9 @@ end
 $inflector = Dry::Inflector.new
 # now for day pages
 def day(d)
-    d0 = sprintf "%02d", d
-    di = $inflector.ordinalize(d)
-    r = "<h1 id=\"jan-#{d0}\">January #{di}</h1>
+    d0 = sprintf "%02d", d.day
+    di = $inflector.ordinalize(d.day)
+    r = "<h1 id=\"#{d.strftime("%b").downcase}-#{d0}\">#{d.strftime("%B")} #{di}</h1>
     <table class=hourstable>
     "
     for h in (8..17) do
@@ -87,8 +87,23 @@ def day(d)
     r
 end
 
-for d in (1..31) do  # 31 for jan
-    %><%=day d%><%
+d       = Time.new(2022,1)
+m       = d.month
+one_day = 60*60*24
+
+# day pages for January
+while d.month == m do
+  %><%=day d %><%
+  d += one_day
+end
+
+# day pages for February
+# d is already equiv. to Time.new(2022,2) due
+# to loop above
+m       = d.month
+while d.month == m do
+  %><%=day d %><%
+  d += one_day
 end
 
 # project pages
