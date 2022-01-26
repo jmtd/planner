@@ -71,9 +71,9 @@ end
 $inflector = Dry::Inflector.new
 # now for day pages
 def day(d)
-    d0 = sprintf "%02d", d.day
+    id = sprintf '"%s-%02d"', d.strftime("%b").downcase, d.day
     di = $inflector.ordinalize(d.day)
-    r = "<h1 id=\"#{d.strftime("%b").downcase}-#{d0}\">#{d.strftime("%B")} #{di}</h1>
+    r = "<h1 id=#{id}>#{d.strftime("%A, %B")} #{di}</h1>
     <table class=hourstable>
     "
     for h in (8..17) do
