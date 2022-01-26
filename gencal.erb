@@ -1,4 +1,7 @@
-<!DOCTYPE html>
+<%
+require "dry/inflector" # Debian package ruby-dry-inflector
+
+%><!DOCTYPE html>
 <html>
     <head>
         <meta charset="utf-8" />
@@ -65,10 +68,12 @@ end
 </p>
 
 <%
+$inflector = Dry::Inflector.new
 # now for day pages
 def day(d)
     d0 = sprintf "%02d", d
-    r = "<h1 id=\"jan-#{d0}\">January #{d0}</h1>
+    di = $inflector.ordinalize(d)
+    r = "<h1 id=\"jan-#{d0}\">January #{di}</h1>
     <table class=hourstable>
     "
     for h in (8..17) do
