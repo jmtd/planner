@@ -124,3 +124,8 @@ th
 {
     position: running(year);
 }
+
+h2
+{
+    margin-bottom: 0;
+}
