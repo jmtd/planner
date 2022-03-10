@@ -1,6 +1,8 @@
 <%
 require "dry/inflector" # Debian package ruby-dry-inflector
 
+$one_day = 60*60*24
+
 %><!DOCTYPE html>
 <html>
     <head>
@@ -16,8 +18,12 @@ def month(m)
       # pre-1st padding. What day of the week is the 1st?
       offset = m.wday
       # last day of this month
-      # month+1 will over flow for Dec. duh
-      last = (Time.new(m.year,m.month + 1,1) - 1).day
+      last = Time.new(m.year,m.month,1)
+      while last.month == m.month do
+        last += $one_day
+      end
+      last -= $one_day
+      last = last.day
 
       r =  "<div class=\"month\">\n"
       r += "<h2>" + m.strftime("%B") + "</h2>\n"
@@ -51,7 +57,7 @@ def month(m)
       "
     end
 
-for m in (1..9) do
+for m in (1..12) do
   %><%=month(Time.new(2022,m)) %><%
 end
 %>
@@ -89,11 +95,10 @@ end
 
 d       = Time.new(2022,1)
 e       = Time.new(2023,1)
-one_day = 60*60*24
 
 while d < e do
   %><%=day d %><%
-  d += one_day
+  d += $one_day
 end
 
 # project pages
