@@ -106,6 +106,13 @@ while d.month == m do
   d += one_day
 end
 
+# March
+m       = d.month
+while d.month == m do
+  %><%=day d %><%
+  d += one_day
+end
+
 # project pages
 for d in (1..4) do
 %>
