@@ -88,27 +88,10 @@ def day(d)
 end
 
 d       = Time.new(2022,1)
-m       = d.month
+e       = Time.new(2023,1)
 one_day = 60*60*24
 
-# day pages for January
-while d.month == m do
-  %><%=day d %><%
-  d += one_day
-end
-
-# day pages for February
-# d is already equiv. to Time.new(2022,2) due
-# to loop above
-m       = d.month
-while d.month == m do
-  %><%=day d %><%
-  d += one_day
-end
-
-# March
-m       = d.month
-while d.month == m do
+while d < e do
   %><%=day d %><%
   d += one_day
 end
