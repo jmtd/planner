@@ -1,5 +1,6 @@
 <%
 require "dry/inflector" # Debian package ruby-dry-inflector
+require "date"
 
 $one_day = 60*60*24
 
@@ -14,41 +15,33 @@ $one_day = 60*60*24
       <h1 id=year><a href="#year">2022</a></h1>
 <div class="monthflex">
 <%
-def month(m)
+def month(m)  # Date object representing fst day of month
       # pre-1st padding. What day of the week is the 1st?
-      offset = m.wday
-      # last day of this month
-      last = Time.new(m.year,m.month,1)
-      while last.month == m.month do
-        last += $one_day
-      end
-      last -= $one_day
-      last = last.day
+      offset = m.to_time.wday
 
-      r =  "<div class=\"month\">\n"
+      # last day number of this month
+      last = m
+      while (last + 1).month == m.month
+        last += 1
+      end
+
+      r  = "<div class=\"month\">\n"
       r += "<h2>" + m.strftime("%B") + "</h2>\n"
-      r += "<table>
-    <tr>
-        <th>M</th>
-        <th>T</th>
-        <th>W</th>
-        <th>T</th>
-        <th>F</th>
-        <th>S</th>
-        <th>S</th>
-    </tr>
-<tr>
-"
-      for d in (2..offset) do
+      r += "<table>\n<tr>"
+      r += "MTWTFSS".split("").map { |d| "<th>#{d}</th>\n" }.join
+      r += "</tr>\n<tr>\n"
+
+      (offset - 1).times do
         r += "<td>&nbsp;</td>\n"
       end
 
-      for d in (1..last) do
+      mon = m.strftime("%b").downcase
+
+      for d in (1..last.day) do
           if (d+offset-2) % 7 == 0
               r += "</tr><tr>\n"
           end
           d0 = sprintf "%02d", d
-          mon = m.strftime("%b").downcase
           r += "<td><a href=\"##{mon}-#{d0}\">#{d0}</a></td>"
       end
       r + "</tr>
@@ -58,7 +51,7 @@ def month(m)
     end
 
 for m in (1..12) do
-  %><%=month(Time.new(2022,m)) %><%
+  %><%=month(Date.new(2022,m,1)) %><%
 end
 %>
 </div>
