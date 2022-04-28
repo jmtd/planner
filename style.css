@@ -7,7 +7,7 @@ body
      * dotted-grid background
      * https://developer.mozilla.org/en-US/docs/Web/CSS/gradient/radial-gradient()
      */
-    background-size: 1em 1em; /*40px 40px;*/
+    background-size: 1em 1em;
     background-image: radial-gradient(circle, grey 1px,
         rgba(0, 0, 0, 0) 1px /* 2px here rounds off the dots */);
 }
@@ -74,7 +74,7 @@ th
     padding: 1em;
 }
 
-.hour-8, .hour-12, .hour-17
+.hour-8, .hour-12, .hour-17 /* before, after work; lunch */
 {
     background: #ccc;
 }

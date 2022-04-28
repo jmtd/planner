@@ -3,12 +3,13 @@ require "dry/inflector" # Debian package ruby-dry-inflector
 require "date"
 
 $one_day = 60*60*24
+$inflector = Dry::Inflector.new
 
 %><!DOCTYPE html>
 <html>
     <head>
         <meta charset="utf-8" />
-        <link rel="stylesheet" type="text/css" href="styles.css" />
+        <link rel="stylesheet" type="text/css" href="style.css" />
     </head>
     <body>
 
@@ -48,7 +49,7 @@ def month(m)  # Date object representing fst day of month
       </table>
       </div>
       "
-    end
+end
 
 for m in (1..12) do
   %><%=month(Date.new(2022,m,1)) %><%
@@ -67,7 +68,6 @@ end
 </p>
 
 <%
-$inflector = Dry::Inflector.new
 # now for day pages
 def day(d)
     id = sprintf '"%s-%02d"', d.strftime("%b").downcase, d.day
