@@ -73,7 +73,8 @@ def day(d)
     id = sprintf '"%s-%02d"', d.strftime("%b").downcase, d.day
     di = $inflector.ordinalize(d.day)
     r = "<h1 id=#{id}>#{d.strftime("%A, %B")} #{di}</h1>
-    <table class=hourstable>
+    <div class=dotted>
+    <table border=0 cellpadding=0 class=hourstable>
     "
     for h in (8..17) do
         h0 = sprintf "%02d", h
@@ -82,7 +83,7 @@ def day(d)
         </tr>
         "
     end
-    r+= "</table>\n"
+    r+= "</table>\n</div>\n"
     r
 end
 
