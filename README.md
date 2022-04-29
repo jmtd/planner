@@ -1,12 +1,12 @@
 # Planner
 
+<a href=https://jmtd.net/log/planner/ytv.png><img src=https://jmtd.net/log/planner/400x-ytv.png align=right alt="year view" /></a>
+<a href=https://jmtd.net/log/planner/day.png><img src=https://jmtd.net/log/planner/400x-day.png align=right alt="day view" /></a>
+
 This is a simple PDF-based, hyperlinked calendar, for use on tablets and
 devices like the *Remarkable 2*.
 
 ## Features
-
-<a href=https://jmtd.net/log/planner/ytv.png><img src=https://jmtd.net/log/planner/400x-ytv.png align=right alt="year view" /></a>
-<a href=https://jmtd.net/log/planner/day.png><img src=https://jmtd.net/log/planner/400x-day.png align=right alt="day view" /></a>
 
  * dotted grid backdrop on all pages
  * one-page year-to-view, hyperlinks for days
