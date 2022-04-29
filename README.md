@@ -30,6 +30,12 @@ make
 Requires [eRuby](https://www.ruby-lang.org/en/), Ruby gem `dry/inflector` and
 [weasyprint](https://weasyprint.org/).
 
+## Download
+
+Skip the build and download the last time I committed a render:
+
+ * [calendar.pdf](calendar.pdf)
+
 ## Copyright & License
 
 Copyright © 2022 Jonathan Dowland. Distributed under the terms of the
