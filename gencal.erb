@@ -4,6 +4,7 @@ require "date"
 
 $one_day = 60*60*24
 $inflector = Dry::Inflector.new
+$year = 2023
 
 %><!DOCTYPE html>
 <html>
@@ -13,7 +14,7 @@ $inflector = Dry::Inflector.new
     </head>
     <body>
 
-      <h1 id=year><a href="#year">2022</a></h1>
+      <h1 id=year><a href="#year"><%=$year%></a></h1>
 <div class="monthflex">
 <%
 def month(m)  # Date object representing fst day of month
@@ -52,7 +53,7 @@ def month(m)  # Date object representing fst day of month
 end
 
 for m in (1..12) do
-  %><%=month(Date.new(2022,m,1)) %><%
+  %><%=month(Date.new($year,m,1)) %><%
 end
 %>
 </div>
@@ -87,8 +88,8 @@ def day(d)
     r
 end
 
-d       = Time.new(2022,1)
-e       = Time.new(2023,1)
+d       = Time.new($year,1)
+e       = Time.new($year+1,1)
 
 while d < e do
   %><%=day d %><%
