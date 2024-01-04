@@ -32,13 +32,14 @@ Requires [eRuby](https://www.ruby-lang.org/en/), Ruby gem `dry/inflector` and
 
 ## Download
 
-Skip the build and download the last time I committed a render:
+Check the latest [GitHub release](https://github.com/jmtd/planner/releases/).
+Last time I updated the README it was this one (2024):
 
- * [calendar.pdf](calendar.pdf)
+ * [calendar.pdf](https://github.com/jmtd/planner/releases/download/2024.1/calendar.pdf)
 
 ## Copyright & License
 
-Copyright © 2022 Jonathan Dowland. Distributed under the terms of the
+Copyright © 2024 Jonathan Dowland. Distributed under the terms of the
 Creative Commons Attribution-ShareAlike 4.0 International (CC BY-SA 4.0)
 license. See <https://creativecommons.org/licenses/by-sa/4.0/> for a
 summary and [COPYING](COPYING) for the full license text.
