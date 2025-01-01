@@ -33,13 +33,13 @@ Requires [eRuby](https://www.ruby-lang.org/en/), Ruby gem `dry/inflector` (Debia
 ## Download
 
 Check the latest [GitHub release](https://github.com/jmtd/planner/releases/).
-Last time I updated the README it was this one (2024):
+Last time I updated the README it was this one (2025):
 
- * [calendar.pdf](https://github.com/jmtd/planner/releases/download/2024.1/calendar.pdf)
+ * [calendar.pdf](https://github.com/jmtd/planner/releases/download/2025.1/calendar.pdf)
 
 ## Copyright & License
 
-Copyright © 2024 Jonathan Dowland. Distributed under the terms of the
+Copyright © 2025 Jonathan Dowland. Distributed under the terms of the
 Creative Commons Attribution-ShareAlike 4.0 International (CC BY-SA 4.0)
 license. See <https://creativecommons.org/licenses/by-sa/4.0/> for a
 summary and [COPYING](COPYING) for the full license text.
