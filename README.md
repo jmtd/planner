@@ -27,7 +27,7 @@ devices like the *Remarkable 2*.
 make
 ```
 
-Requires [eRuby](https://www.ruby-lang.org/en/), Ruby gem `dry/inflector` and
+Requires [eRuby](https://www.ruby-lang.org/en/), Ruby gem `dry/inflector` (Debian: `ruby-dry-inflector`) and
 [weasyprint](https://weasyprint.org/).
 
 ## Download
