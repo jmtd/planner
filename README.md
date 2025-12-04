@@ -28,7 +28,7 @@ make
 ```
 
 Requires [eRuby](https://www.ruby-lang.org/en/), Ruby gem `dry/inflector` (Debian: `ruby-dry-inflector`) and
-[weasyprint](https://weasyprint.org/).
+[weasyprint](https://weasyprint.org/) (tested with 62.3).
 
 ## Download
 

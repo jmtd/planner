@@ -14,7 +14,7 @@ $year = 2025
     </head>
     <body>
 
-      <h1 id=year><a href="#year"><%=$year%></a></h1>
+      <h1 class=newpage id=year><a href="#year"><%=$year%></a></h1>
 <div class="monthflex">
 <%
 def month(m)  # Date object representing fst day of month
@@ -28,7 +28,7 @@ def month(m)  # Date object representing fst day of month
       end
 
       r  = "<div class=\"month\">\n"
-      r += "<h2>" + m.strftime("%B") + "</h2>\n"
+      r += "<h3>" + m.strftime("%B") + "</h3>\n"
       r += "<table>\n<tr>"
       r += "MTWTFSS".split("").map { |d| "<th>#{d}</th>\n" }.join
       r += "</tr>\n<tr>\n"
@@ -62,7 +62,7 @@ end
 <% # can't use OL due to https://github.com/Kozea/WeasyPrint/issues/1239
 for d in (1..4) do
 %>
-  <a href="#project-<%=d%>">Project <%=d%></a>
+  <a href="#project-<%=d%>.1">Project <%=d%></a>
 <%
 end
 %>
@@ -73,7 +73,7 @@ end
 def day(d)
     id = sprintf '"%s-%02d"', d.strftime("%b").downcase, d.day
     di = $inflector.ordinalize(d.day)
-    r = "<h1 id=#{id}>#{d.strftime("%A, %B")} #{di}</h1>
+    r = "<h1 class=newpage id=#{id}>#{d.strftime("%A, %B")} #{di}</h1>
     <div class=dotted>
     <table border=0 cellpadding=0 class=hourstable>
     "
@@ -97,10 +97,16 @@ while d < e do
 end
 
 # project pages
-for d in (1..4) do
-%>
-  <h1 id="project-<%=d%>">Project <%=d%></h1>
-<%
+subpages = 5
+for p in (1..4) do
+  for s in (1..subpages) do
+    %>
+      <div class="newpage clear">
+        <h1 class=left id="project-<%= "#{p}.#{s}" %>">Project <%=p%></h1>
+          <h2 class=right>page <%=s%>/<%=subpages%></h2>
+      </div>
+    <%
+  end
 end
 %>
     </body>
